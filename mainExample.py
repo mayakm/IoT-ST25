@@ -11,7 +11,7 @@ from lib.mqtt import MQTTClient
 #initiate mqtt
 mqtt_client = MQTTClient(
     "pico-client",
-    "HOST IP ADDRESS"
+    "HOST IP ADDRESS"  # Change this to your actual IP address
 )
 mqtt_client.connect()
 
@@ -41,8 +41,8 @@ led_b = Pin(20, Pin.OUT)
 
 # Thresholds
 TEMP_THRESHOLD = 31  # degrees celsius
-INACTIVITY_TIMEOUT = 10 # seconds
-TEMP_READ_INTERVAL = 2.0
+INACTIVITY_TIMEOUT = 10 # after 10 seconds, the exercise will be aborted
+TEMP_READ_INTERVAL = 2.0 # the interval of which the temperature will be properly read from the sensor
 
 def leds_off():
     led_r.on()
@@ -64,7 +64,9 @@ def red_led():
     led_g.on()
     led_b.on()
 
-def breathing_guide(times=4):
+# breathing exercise according to the 4-7-8 method, x3 to ensure it is around a minute to get proper time 
+# for destress
+def breathing_guide(times=3):
     for _ in range(times):
         print("Inhale")
         led_r.on()
@@ -85,6 +87,7 @@ def read_temp():
 
     now = time.time()
     #  only new read from sensor every 2 seconds, otherwise use the last measured temp
+    # this is to decrease the delay that inevitably will come from getting a proper reading
     if now - last_temp_time >= TEMP_READ_INTERVAL:
         temp_sensor.start_conversion()
         time.sleep_ms(750)
