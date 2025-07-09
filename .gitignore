@@ -1,0 +1,33 @@
+# Ignorera Python-filer (om du inte vill lägga upp dem)
+temp_test.py
+keys.py
+mainJoakim.py
+oldMain.py
+pulse_test.py
+tryHeart.py
+
+# Ignorera pycache-mapp
+__pycache__/
+
+# Ignorera filer med personliga lösenord eller API-nycklar
+*.env
+secrets.txt
+
+# Ignorera Docker-volymer eller data mappar
+docker_grafana_data/
+docker_influxdb_data/
+
+# Ignorera loggar och temporära filer
+*.log
+*.tmp
+
+# Ignorera VS Code inställningar
+.vscode/
+
+# Ignorera eventuella binära filer eller kompilerade filer
+*.exe
+*.bin
+
+#Ignorera config
+mosquitto/config/mosquitto.conf
+telegraf/telegraf.conf
