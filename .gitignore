@@ -5,6 +5,7 @@ mainJoakim.py
 oldMain.py
 pulse_test.py
 tryHeart.py
+main.py
 
 # Ignorera pycache-mapp
 __pycache__/
@@ -29,5 +30,4 @@ docker_influxdb_data/
 *.bin
 
 #Ignorera config
-mosquitto/config/mosquitto.conf
-telegraf/telegraf.conf
+docker/
